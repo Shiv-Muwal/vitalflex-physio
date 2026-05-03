@@ -619,9 +619,9 @@ body {
     justify-content: center;
     font-size: 18px;
 }
-
 .fc-icon-blue {
     background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    /* display: block !important; */
 }
 
 .fc-icon-green {
@@ -732,16 +732,16 @@ section {
 
 .about-img-bg {
     width: 100%;
-    aspect-ratio: 4/5;
     background: linear-gradient(145deg, var(--blue-pale), #c8dff7);
     border-radius: var(--radius-lg);
+      display: inline-block;  
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
 }
 
 .about-img-inner {
-    position: absolute;
+    position: relative;
     inset: 0;
     display: flex;
     align-items: center;
@@ -750,8 +750,8 @@ section {
 
 .about-illustration {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
+   display : block;
 }
 
 .about-badge-cert {
@@ -871,7 +871,7 @@ section {
 }
 
 /* ─── SERVICES ─── */
-#services {
+/* #services {
     background: white;
 }
 
@@ -880,9 +880,9 @@ section {
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 24px;
     margin-top: 50px;
-}
+} */
 
-.service-card {
+/* .service-card {
     background: white;
     border: 1px solid rgba(10, 102, 194, 0.1);
     border-radius: var(--radius);
@@ -891,9 +891,9 @@ section {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-}
+} */
 
-.service-card::before {
+/* .service-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -948,8 +948,8 @@ section {
 .service-card:hover .service-icon {
     background: linear-gradient(135deg, var(--blue), var(--blue-light));
     box-shadow: 0 6px 20px var(--blue-glow);
-}
-
+} */
+/* 
 .service-title {
     font-size: 1.1rem;
     font-weight: 700;
@@ -1014,7 +1014,7 @@ section {
 
 .service-card:hover .service-arrow {
     gap: 10px;
-}
+} */
 
 /* ─── WHY CHOOSE US ─── */
 #why {
@@ -1718,6 +1718,9 @@ footer {
         height: 46px;
         max-width: 190px;
     }
+.fc-icon-blue{
+    display: none !important;
+ }
 
     .footer-brand-logo {
         height: 42px;
@@ -1753,11 +1756,13 @@ footer {
     }
 
     .floating-card-1 {
-        right: -10px;
+        right: -65px;
+        top: 113px;
     }
 
     .floating-card-2 {
         left: -10px;
+        bottom: -27px;
     }
 
     .about-grid,
@@ -1819,4 +1824,210 @@ footer {
     .hero-stats {
         gap: 16px;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   SERVICES SECTION - IMAGE CARDS
+   ============================================ */
+
+.services-grid-new {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.service-card-new {
+    background: white;
+    border: 1px solid rgba(10, 102, 194, 0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    box-shadow: 0 4px 20px rgba(10, 102, 194, 0.08);
+}
+
+.service-card-new:hover {
+    border-color: var(--blue);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+}
+
+/* Top Image Area */
+.service-card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.service-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card-new:hover .service-card-image img {
+    transform: scale(1.1);
+}
+
+.service-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10, 102, 194, 0.05), rgba(10, 102, 194, 0.55));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-card-new:hover .service-card-overlay {
+    opacity: 1;
+}
+
+
+/* Content Area */
+.service-card-content {
+    padding: 32px 12px 28px;
+    position: relative;
+}
+
+.service-title-new {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.service-desc-new {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* Expandable Details */
+.service-expand-new {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.service-card-new.expanded .service-expand-new {
+    max-height: 350px;
+    opacity: 1;
+    margin-bottom: 16px;
+}
+
+.service-expand-new ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--blue-pale);
+}
+
+.service-expand-new li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+.service-expand-new li::before {
+    content: '✓';
+    color: var(--blue);
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    background: var(--blue-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+/* Arrow Link */
+.service-arrow-new {
+    font-size: 0.85rem;
+    color: var(--blue);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+    margin-top: 4px;
+}
+
+.service-card-new:hover .service-arrow-new {
+    gap: 10px;
+}
+
+.service-card-new.expanded .service-arrow-new {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   RESPONSIVE - SERVICES IMAGE CARDS
+   ============================================ */
+
+@media (max-width: 968px) {
+ .services-grid-new {
+        grid-template-columns: repeat(2, 1fr);  /* 2 cards on tablets */
+        gap: 20px;
+    }
+    
+    .service-card-image {
+        height: 180px;
+    }
+    
+    .service-card-icon-new {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        bottom: -20px;
+        right: 20px;
+    }
+    
+    .service-card-image {
+        height: 180px;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .services-grid-new {
+        grid-template-columns: 1fr;  /* 1 card on mobile */
+    }
+    
+    .service-card-image {
+        height: 200px;
+    }
+    
+    .service-card-content {
+        padding: 28px 20px 24px;
+    }
+    
+    .service-title-new {
+        font-size: 1.05rem;
+    }
+
 }
